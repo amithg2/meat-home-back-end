@@ -10,6 +10,7 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const session = require("express-session");
+const bcrypt = require('bcrypt')
 const SECRET = process.env.SECRET;
 const PORT = process.env.PORT || 3001;
 const app = express();
