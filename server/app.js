@@ -35,22 +35,22 @@ app.use("/guest", guest);
 app.use("/admin", admin);
 app.use("/login", login);
 
-// app.post("/creatusers", async (req, res) => {
-//   const userObj = {
-//     username: "yossi",
-//     password: (await bcrypt.hash("a123456", 12)).toString(),
-//     email: "amitadi91@gmail.com",
-//   };
+app.post("/createusers", async (req, res) => {
+  const userObj = {
+    username: "yossi",
+    password: (await bcrypt.hash("a123456", 12)).toString(),
+    email: "amitadi91@gmail.com",
+  };
 
-//    new userSchema(userObj)
-//     .save()
-//     .then((p) => {
-//       console.log(p);
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     });
-// });
+   new userSchema(userObj)
+    .save()
+    .then((p) => {
+      console.log(p);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
 
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
