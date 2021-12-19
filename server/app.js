@@ -1,5 +1,4 @@
 // require("dotenv").config();
-console.log(process.env)
 const express = require("express");
 const resrvationsRoutes = require("./routes/reservationsRoutes");
 const guest = require("./routes/guest");
@@ -10,10 +9,12 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const session = require("express-session");
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt')//
+const UserSchema = require('./models/userSchema')
 const SECRET = process.env.SECRET;
 const PORT = process.env.PORT || 3001;
 const app = express();
+
 app.use(express.json());
 app.use(cors());
 app.use(cookieParser());
@@ -43,7 +44,7 @@ app.post("/createusers", async (req, res) => {
     email: "amitadi91@gmail.com",
   };
 
-   new userSchema(userObj)
+   new UserSchema(userObj)
     .save()
     .then((p) => {
       console.log(p);
