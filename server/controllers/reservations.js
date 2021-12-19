@@ -3,7 +3,6 @@ const DataModel = require("../models/DataSchema");
 const helpers = require("./controllerHelpes");
 const mbxGeocoding = require("@mapbox/mapbox-sdk/services/geocoding");
 const MAPBOX_ACCESS_TOKEN = process.env.MAPBOX_ACCESS_TOKEN;
-console.log(MAPBOX_ACCESS_TOKEN, '***')
 const mapBoxToken = MAPBOX_ACCESS_TOKEN;
 const geocoder = mbxGeocoding({ accessToken: mapBoxToken });
 

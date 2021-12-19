@@ -15,3 +15,8 @@ module.exports.getFbImages = async (req, res) => {
   const fbImages = await axios.get(FB_CONNECT);
   return res.send(fbImages.data.posts);
 };
+module.exports.amit = async (req, res) => {
+  const newModel = new DataModel({ resIds: [1], enters: 1 });
+  await newModel.save().then((p)=> {console.log(p)})
+  
+};
