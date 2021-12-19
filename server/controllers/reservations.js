@@ -1,4 +1,3 @@
-require("dotenv").config();
 const ReservationS = require("../models/resrvationSchema");
 const DataModel = require("../models/DataSchema");
 const helpers = require("./controllerHelpes");
