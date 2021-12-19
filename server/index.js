@@ -1,4 +1,6 @@
-require("dotenv").config();
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 const express = require("express");
 const resrvationsRoutes = require("./routes/reservationsRoutes");
 const guest = require("./routes/guest");
@@ -9,7 +11,7 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const session = require("express-session");
-
+const SECRET = process.env.SECRET;
 const PORT = process.env.PORT || 3001;
 const app = express();
 app.use(express.json());
@@ -20,7 +22,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   session({
     key: "id",
-    secret: "amitssecret",
+    secret: SECRET,
     resave: false,
     saveUninitialized: true,
     cookie: {
