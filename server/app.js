@@ -9,8 +9,6 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const session = require("express-session");
-const bcrypt = require('bcrypt')//
-const UserSchema = require('./models/userSchema')
 const SECRET = process.env.SECRET;
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -37,22 +35,22 @@ app.use("/guest", guest);
 app.use("/admin", admin);
 app.use("/login", login);
 
-app.post("/createusers", async (req, res) => {
-  const userObj = {
-    username: "yossi",
-    password: (await bcrypt.hash("a123456", 12)).toString(),
-    email: "amitadi91@gmail.com",
-  };
+// app.post("/createusers", async (req, res) => {
+//   const userObj = {
+//     username: "yossi",
+//     password: (await bcrypt.hash("a123456", 12)).toString(),
+//     email: "amitadi91@gmail.com",
+//   };
 
-   new UserSchema(userObj)
-    .save()
-    .then((p) => {
-      console.log(p);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
+//    new UserSchema(userObj)
+//     .save()
+//     .then((p) => {
+//       console.log(p);
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//     });
+// });
 
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
